@@ -21,13 +21,12 @@ public class SandboxListas
      * Una lista de enteros para realizar varias de las siguientes operaciones.
      */
     private List<Integer> listaEnteros;
-    
-
+   
     /**
      * Una lista de cadenas para realizar varias de las siguientes operaciones
      */
     private List<String> listaCadenas;
-
+    
     /**
      * Crea una nueva instancia de la clase con las dos listas inicializadas pero vacías
      */
@@ -43,7 +42,13 @@ public class SandboxListas
      */
     public List<Integer> getCopiaEnteros( )
     {
-        return null;
+    	List<Integer> listaEnterosCopia;
+    	listaEnterosCopia = new ArrayList<Integer>();
+    	
+    	for(int i = 0; i < listaEnteros.size(); i++){
+    	listaEnterosCopia.add(listaEnteros.get(i));
+    }
+    	return listaEnterosCopia;	
     }
 
     /**
@@ -52,7 +57,13 @@ public class SandboxListas
      */
     public List<String> getCopiaCadenas( )
     {
-        return null;
+    	List<String> listaCadenaCopia;
+    	listaCadenaCopia = new ArrayList<String>();
+    	
+    	for(int i = 0; i < listaCadenas.size(); i++){
+    		listaCadenaCopia.add(listaCadenas.get(i));
+    }
+    	return listaCadenaCopia;
     }
 
     /**
