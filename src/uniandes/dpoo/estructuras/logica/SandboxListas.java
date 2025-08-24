@@ -278,7 +278,7 @@ public class SandboxListas
     public int contarApariciones( String cadena )
     {
         int contador = 0;
-        for (int i = 0; i < listaEnteros.size(); i++) {
+        for (int i = 0; i < listaCadenas.size(); i++) {
         	String aparicion = listaCadenas.get(i);
         	if (aparicion == cadena) {
         		contador += 1;
