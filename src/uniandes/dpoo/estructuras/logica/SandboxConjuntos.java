@@ -144,11 +144,15 @@ public class SandboxConjuntos
      */
     public void eliminarCadenaSinMayusculasOMinusculas( String cadena )
     {
-    	for (String elemento : arbolCadenas) {
-    		if (elemento.equalsIgnoreCase(cadena)) {
-    			arbolCadenas.remove(elemento);
-    		}
-    	}
+    	List<String> eliminar = new ArrayList<>();
+        for (String elemento : arbolCadenas) {
+            if (elemento.equalsIgnoreCase(cadena)) {
+                eliminar.add(elemento);
+            }
+        }
+        for (String elem : eliminar) {
+            arbolCadenas.remove(elem);
+        }
     }
 
     /**
@@ -192,11 +196,9 @@ public class SandboxConjuntos
      */
     public TreeSet<String> invertirCadenas( )
     {
-    	TreeSet<String> nuevoSet = new TreeSet<>();
-    	for (String elemento : arbolCadenas) {
-    		nuevoSet.addFirst(elemento);
-    	}
-    	return nuevoSet;
+    	TreeSet<String> nuevoSet = new TreeSet<>(Collections.reverseOrder());
+        nuevoSet.addAll(arbolCadenas);
+        return nuevoSet;
     }
     
 
