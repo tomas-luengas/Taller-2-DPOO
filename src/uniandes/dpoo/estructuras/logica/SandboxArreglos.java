@@ -198,16 +198,19 @@ public class SandboxArreglos
      */
     public void eliminarEnteroPorPosicion( int posicion )
     {
-    	int[] nuevoEntero = new int[arregloEnteros.length - 1];
-    	if (posicion >= 0 && posicion < arregloEnteros.length) {
-    		for (int i = 0; i < posicion; i++) {
-    			nuevoEntero[i] = arregloEnteros[i];
-    		}
-    		for (int i = posicion; i < nuevoEntero.length; i++) {
-    			nuevoEntero[i] = arregloEnteros[i + 1];
-    		}
-    	}
-    	arregloEnteros = nuevoEntero;
+        if (posicion >= 0 && posicion < arregloEnteros.length) {
+            int[] nuevoEntero = new int[arregloEnteros.length - 1];
+
+            for (int i = 0; i < posicion; i++) {
+                nuevoEntero[i] = arregloEnteros[i];
+            }
+
+            for (int i = posicion; i < nuevoEntero.length; i++) {
+                nuevoEntero[i] = arregloEnteros[i + 1];
+            }
+
+            arregloEnteros = nuevoEntero;
+        }
     }
 
     /**
