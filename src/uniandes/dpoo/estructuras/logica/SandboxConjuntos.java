@@ -1,6 +1,9 @@
 package uniandes.dpoo.estructuras.logica;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.TreeSet;
@@ -39,7 +42,11 @@ public class SandboxConjuntos
      */
     public List<String> getCadenasComoLista( )
     {
-        return null;
+    	List<String> nuevaLista = new ArrayList<String>();
+    	for (String cadena : arbolCadenas) {
+    		nuevaLista.add(cadena);
+    	}
+    	return nuevaLista;
     }
 
     /**
@@ -48,7 +55,13 @@ public class SandboxConjuntos
      */
     public List<String> getCadenasComoListaInvertida( )
     {
-        return null;
+    	List<String> nuevaLista = new ArrayList<String>();
+    	for (String cadena : arbolCadenas) {
+    		nuevaLista.add(cadena);
+    	
+    	}
+    	Collections.reverse(nuevaLista);
+    	return nuevaLista;
     }
 
     /**
@@ -59,7 +72,11 @@ public class SandboxConjuntos
      */
     public String getPrimera( )
     {
-        return null;
+    	String respuesta = null;
+    	if (arbolCadenas.size() != 0) {
+    		respuesta = arbolCadenas.first();
+    	}
+    	return respuesta;
     }
 
     /**
@@ -70,7 +87,11 @@ public class SandboxConjuntos
      */
     public String getUltima( )
     {
-        return null;
+    	String respuesta = null;
+    	if (arbolCadenas.size() != 0) {
+    		respuesta = arbolCadenas.last();
+    	}
+    	return respuesta;
     }
 
     /**
@@ -80,7 +101,11 @@ public class SandboxConjuntos
      */
     public Collection<String> getSiguientes( String cadena )
     {
-        return null;
+        Collection<String> listaSiguientes = new ArrayList<String>();
+        for (String elemento : arbolCadenas.tailSet(cadena)) {
+        	listaSiguientes.add(elemento);
+        }
+        return listaSiguientes;
     }
 
     /**
@@ -89,7 +114,7 @@ public class SandboxConjuntos
      */
     public int getCantidadCadenas( )
     {
-        return -1;
+        return arbolCadenas.size();
     }
 
     /**
@@ -101,7 +126,7 @@ public class SandboxConjuntos
      */
     public void agregarCadena( String cadena )
     {
-
+    	arbolCadenas.add(cadena);
     }
 
     /**
@@ -110,7 +135,7 @@ public class SandboxConjuntos
      */
     public void eliminarCadena( String cadena )
     {
-
+    	arbolCadenas.remove(cadena);
     }
 
     /**
@@ -119,7 +144,11 @@ public class SandboxConjuntos
      */
     public void eliminarCadenaSinMayusculasOMinusculas( String cadena )
     {
-
+    	for (String elemento : arbolCadenas) {
+    		if (elemento.equalsIgnoreCase(cadena)) {
+    			arbolCadenas.remove(elemento);
+    		}
+    	}
     }
 
     /**
@@ -127,7 +156,7 @@ public class SandboxConjuntos
      */
     public void eliminarPrimera( )
     {
-
+    	arbolCadenas.removeFirst();
     }
 
     /**
@@ -138,7 +167,10 @@ public class SandboxConjuntos
      */
     public void reiniciarConjuntoCadenas( List<Object> objetos )
     {
-
+    	arbolCadenas.clear();
+    	for (Object elemento : objetos ) {
+    		arbolCadenas.add(elemento.toString());
+    	}
     }
 
     /**
@@ -148,6 +180,11 @@ public class SandboxConjuntos
      */
     public void volverMayusculas( )
     {
+    	NavigableSet<String> nuevoSet = new TreeSet<>();
+    	for (String elemento : arbolCadenas) {
+    		nuevoSet.add(elemento.toUpperCase());
+    	}
+    	arbolCadenas = nuevoSet;
     }
 
     /**
@@ -155,8 +192,13 @@ public class SandboxConjuntos
      */
     public TreeSet<String> invertirCadenas( )
     {
-        return null;
+    	TreeSet<String> nuevoSet = new TreeSet<>();
+    	for (String elemento : arbolCadenas) {
+    		nuevoSet.addFirst(elemento);
+    	}
+    	return nuevoSet;
     }
+    
 
     /**
      * Verifica si todos los elementos en el arreglo de cadenas del parámetro hacen parte del conjunto de cadenas
@@ -165,7 +207,8 @@ public class SandboxConjuntos
      */
     public boolean compararElementos( String[] otroArreglo )
     {
-        return false;
+    	List<String> revisar = Arrays.asList(otroArreglo);
+        return arbolCadenas.containsAll(revisar);
     }
 
 }
