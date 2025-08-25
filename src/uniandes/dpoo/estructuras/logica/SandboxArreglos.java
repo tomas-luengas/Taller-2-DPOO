@@ -93,8 +93,8 @@ public class SandboxArreglos
     	int[] nuevoArreglo = new int[arregloEnteros.length + 1];
     	for(int i = 0; i < arregloEnteros.length; i++) {
     		nuevoArreglo[i] = arregloEnteros[i];
-    	nuevoArreglo[nuevoArreglo.length - 1] = entero;	
     	}
+    	nuevoArreglo[nuevoArreglo.length - 1] = entero;	
     	arregloEnteros = nuevoArreglo;
     }
 
@@ -108,8 +108,8 @@ public class SandboxArreglos
     	String[] nuevoArreglo = new String[arregloCadenas.length + 1];
     	for(int i = 0; i < arregloCadenas.length; i++) {
     		nuevoArreglo[i] = arregloCadenas[i];
-    	nuevoArreglo[nuevoArreglo.length - 1] = cadena;
     	}
+    	nuevoArreglo[nuevoArreglo.length - 1] = cadena;
     	arregloCadenas = nuevoArreglo;
     }
 
@@ -146,7 +146,7 @@ public class SandboxArreglos
     	int contador = 0;
     	int j = 0;
     	for(int i = 0; i < arregloCadenas.length; i++) {
-    		if (arregloCadenas[i] != cadena) {
+    		if (arregloCadenas[i].equalsIgnoreCase(cadena) == false) {
     			nuevoArreglo[j] = arregloCadenas[i];
     			contador += 1;
     			j += 1;
@@ -421,15 +421,10 @@ public class SandboxArreglos
      */
     public boolean mismosEnteros( int[] otroArreglo )
     {
-    	boolean respuesta = true;
-    	if (arregloEnteros.length != otroArreglo.length) {
-    		respuesta = false;
-        }        
-        Arrays.sort(getCopiaEnteros());
-        Arrays.sort(otroArreglo);
-        respuesta = Arrays.equals(arregloEnteros, otroArreglo);
-        
-        return respuesta;
+    	int[] copia = getCopiaEnteros();
+    	Arrays.sort(copia);
+    	Arrays.sort(otroArreglo);
+    	return Arrays.equals(copia, otroArreglo);
     }
 
     /**

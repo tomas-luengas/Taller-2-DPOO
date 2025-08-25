@@ -237,8 +237,7 @@ public class SandboxListas
      */
     public void organizarEnteros( )
     {
-    	Collections.sort(listaEnteros);
-    	Collections.reverseOrder();
+    	Collections.sort(listaEnteros, Collections.reverseOrder());
     	
     }
 
@@ -280,7 +279,7 @@ public class SandboxListas
         int contador = 0;
         for (int i = 0; i < listaCadenas.size(); i++) {
         	String aparicion = listaCadenas.get(i);
-        	if (aparicion == cadena) {
+        	if (aparicion.equalsIgnoreCase(cadena)) {
         		contador += 1;
         	}
         }
